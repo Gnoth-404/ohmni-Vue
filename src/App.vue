@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1> {{product}}</h1>
-    <img v-bind:src="image">
+    <img v-bind:src="image" alt="image">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>

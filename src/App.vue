@@ -1,24 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h1> {{product}}</h1>
-    <img v-bind:src="image" alt="image">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <body>
+    <div id="app">
+      <!-- Boxicons CDN Link -->
+      <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+      <Dashboard title="VueJS"></Dashboard>
+    </div>
+  </body>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Dashboard from "@/components/Dashboard";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Dashboard
   },
   data: function () {
     return {
       product: "hit",
-      image: require(".assets/img.png")
+      image: require("./assets/img.png")
     }
   }
 }
@@ -26,11 +27,15 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
-  margin-top: 60px;
+}
+body{
+  background: lightgray;
 }
 </style>

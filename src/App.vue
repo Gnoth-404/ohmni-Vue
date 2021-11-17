@@ -18,8 +18,7 @@ export default {
   },
   data: function () {
     return {
-      product: "hit",
-      image: require("./assets/img.png")
+      product: "hit"
     }
   }
 }

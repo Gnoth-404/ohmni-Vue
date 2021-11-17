@@ -12,18 +12,22 @@
         <a href="#" class="tools"><i class='bx bx-line-chart' ></i></a>
         <a href="#" class="tools_end"><i class='bx bxs-log-out' id="log_out"></i></a>
       </div>
-    <section class="home-section">
-      <div class="text">Dashboard</div>
-    </section>
+    <div v-if="state = 1" class="monitor"> <!--State = 1: Monitor -->
+      <Monitor></Monitor>
+    </div>
     <!-- End of Root Component -->
   </div>
 </template>
 
 <script>
+import Monitor from "@/components/Monitor";
 export default {
   name: "Dashboard",
   props: {
     title: String
+  },
+  components: {
+    Monitor
   }
 }
 </script>
@@ -79,12 +83,11 @@ a{
   border-radius: 2px;
 }
 .toolbar .tools_end #log_out{
-  padding: 8px;
+  padding: 10px;
   position: relative;
   color: white;
   border-radius: 2px;
   background: #11101D;
-  border: 1px solid red;
   transition: all 0.2s ease;
 }
 .toolbar .tools_end #log_out:hover{
@@ -110,5 +113,13 @@ a{
 .toolbar .tools:hover .tooltip{
   opacity: 1;
 }
-
+.monitor{
+  margin: 0;
+  padding: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  justify-content: left;
+  top: 80px
+}
 </style>

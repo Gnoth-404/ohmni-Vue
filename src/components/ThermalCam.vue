@@ -3,7 +3,6 @@
     <div class="name">{{ title }}</div>
     <!-- Begin of Root Component -->
     <video class="feed"></video>
-    <button class="snap"> SNAP </button>
     <!-- End of Root Component -->
   </div>
 </template>
@@ -23,12 +22,13 @@ export default {
   padding: 0;
 }
 .name {
-  margin: 0;
-  border-radius: 3px;
+  border-radius: 12px;
+  margin: 20px;
   padding: 10px;
-  width: 100%;
+  width: 95vw;
   font-size: 30px;
-  color: white;
+  background: #414141;
+  color: lightgray;
 }
 .feed {
   height: 450px;

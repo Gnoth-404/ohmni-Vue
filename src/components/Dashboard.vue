@@ -52,10 +52,10 @@ export default {
   grid-template-columns: 3fr 1fr 1fr 1fr 3fr;
   align-content: center;
   font-size: 30px;
-  background: #11101D;
+  background: #2b2b2b;
 }
 a{
-  color: aliceblue;
+  color: lightgray;
   min-width: 100px;
 }
 .toolbar .tools_start{
@@ -76,24 +76,24 @@ a{
 }
 .toolbar .tools:hover{
   color: black;
-  background: white;
+  background: lightgray;
 }
 .toolbar .tools_end{
-  color: white;
+  color: lightgray;
   border-radius: 2px;
 }
 .toolbar .tools_end #log_out{
   padding: 10px;
   position: relative;
-  color: white;
+  color:lightgray;
   border-radius: 2px;
-  background: #11101D;
+  background: #2b2b2b;
   transition: all 0.2s ease;
 }
 .toolbar .tools_end #log_out:hover{
   padding: 10px;
   position: relative;
-  color: white;
+  color: lightgray;
   border-radius: 2px;
   background: red;
 
@@ -105,8 +105,8 @@ a{
   margin-top: 25px;
   min-width: 10%;
   opacity: 0;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  background: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background: lightgray;
   z-index: 1;
   border-radius: 12px;
 }

@@ -30,7 +30,5 @@ export default{
 .content {
   margin: 0;
   padding: 0;
-  background: black;
-  border: 10px;
 }
 </style>

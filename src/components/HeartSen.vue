@@ -2,7 +2,7 @@
   <div class="sensor">
     <!-- Begin of Root Component -->
     <div class="name">{{ title }}</div>
-    <button v-on:click="sendCmd(0.2, 0, 0, 0, 0, 0.0)">Forward</button>
+    <button v-on:click="sendCmd(0.2, 0, 0, 0, 0, 0.0)">Test Button</button>
     <div>
 
     </div>
@@ -64,10 +64,12 @@ export default {
 
 <style scoped>
 .name {
-  border-radius: 3px;
+  margin: 20px;
   padding: 10px;
-  width: 100%;
+  width: 95vw;
   font-size: 30px;
-  color: white;
+  border-radius: 12px;
+  background: #414141;
+  color: lightgray;
 }
 </style>

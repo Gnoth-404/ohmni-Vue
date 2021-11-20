@@ -3,7 +3,7 @@
     <div id="app">
       <!-- Boxicons CDN Link -->
       <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-      <Dashboard title="VueJS"></Dashboard>
+      <Dashboard title="Vue JS"></Dashboard>
     </div>
   </body>
 </template>
@@ -15,11 +15,6 @@ export default {
   name: 'App',
   components: {
     Dashboard
-  },
-  data: function () {
-    return {
-      product: "hit"
-    }
   }
 }
 </script>

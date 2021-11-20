@@ -2,7 +2,8 @@
   <div class="sensor">
     <!-- Begin of Root Component -->
     <div class="name">{{ title }}</div>
-    <button v-on:click="sendCmd(0.2, 0, 0, 0, 0, 0.0)">Test Button</button>
+    <div class="bpm"><i class='bx bxs-heart'></i> <b id="heart"></b> <b>BPM</b></div>
+    <button v-on:click = sendCmd()>Click Me</button>
     <div>
 
     </div>
@@ -11,43 +12,54 @@
 </template>
 
 <script>
+
 import ROSLIB from "roslib";
 
 export default {
   name: "HeartSen",
   props: {
-    title: String
+    title: String,
+    show: String
   },
-  data: () => ({
-    ros: null,
-    connected: false,
-    //Ros topic
-    listenHeartBeat: String,
-    createCmdVel: String,
-    twist: String
-  }),
+  data: () => {
+    return {
+      product: "hit",
+      ros: null,
+      connected: false,
+      //Ros topic
+      heart: String,
+      bpm: String,
+      createCmdVel: String,
+      twist: String
+    }
+  },
   methods: {
-    sendCmd(x_linear, y_linear, z_linear, x_angular, y_angular, z_angular) {
+    sendCmd() {
       this.createCmdVel = new ROSLIB.Topic({
         ros: this.ros,
         name: "/cmd_vel",
-        messageType: "geometry_msgs/Twist",
+        messageType: "std_msgs/String"
       });
 
       this.twist = new ROSLIB.Message({
-        linear: {
-          x: x_linear,
-          y: y_linear,
-          z: z_linear,
-        },
-        angular: {
-          x: x_angular,
-          y: y_angular,
-          z: z_angular,
-        },
+        data: "Button Click Registered"
       });
+
+      this.createCmdVel.publish(this.twist);
+      console.log("Published Success")
     },
+
+    listenHeart() {
+      this.heartsen = new ROSLIB.Topic({
+        ros: this.ros,
+        name: "/cmd_vel",
+        messageType: "std_msgs/String"
+      });
+
+      this.heartsen.subscribe( bpm => {console.log(bpm.data); document.getElementById("heart").innerHTML= bpm.data})
+    }
   },
+
   mounted() {
     // This is ros connection
     this.ros = new ROSLIB.Ros({
@@ -57,11 +69,10 @@ export default {
       this.connected = true;
     });
     console.log("This is ROSLIB connection", this.ros);
-    this.sendCmd(0.0, 0, 0, 0, 0, 0.0);
+    this.listenHeart();
   },
 }
 </script>
-
 <style scoped>
 .name {
   margin: 20px;
@@ -71,5 +82,9 @@ export default {
   border-radius: 12px;
   background: #414141;
   color: lightgray;
+}
+.bpm {
+  font-size: 30px;
+  color: darkgray;
 }
 </style>

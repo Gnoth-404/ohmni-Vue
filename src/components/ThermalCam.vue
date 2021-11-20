@@ -29,9 +29,6 @@ export default {
   font-size: 30px;
   background: #414141;
   color: lightgray;
-}
-.feed {
-  height: 450px;
-  width: 800px;
+  z-index: 1;
 }
 </style>

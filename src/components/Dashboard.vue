@@ -2,15 +2,11 @@
   <div id="dash">
       <!-- Begin of Root Component -->
       <div class="toolbar">
-        <a class="tools_start"><i class='bx bxl-vuejs'><span> {{title}}</span></i></a>
-        <a href="#" class="tools"><i class='bx bxs-cctv' ></i>
-          <div class="tooltip" >
-            <span > Thermal Camera </span>
-          </div>
-        </a>
+        <a class="tools_start"><i style="padding-right: 12px" class='bx bxl-vuejs'></i>{{title}}</a>
+        <a href="#" class="tools"><i class='bx bxs-cctv' ></i></a>
         <a href="#" class="tools"><i class='bx bxs-heart' ></i></a>
         <a href="#" class="tools"><i class='bx bx-line-chart' ></i></a>
-        <a href="#" class="tools_end"><i class='bx bxs-log-out' id="log_out"></i></a>
+        <a href="#" class="tools_end"><div class="logout"><i class='bx bxs-log-out'></i></div></a>
       </div>
     <div v-if="state = 1" class="monitor"> <!--State = 1: Monitor -->
       <Monitor></Monitor>
@@ -55,23 +51,28 @@ export default {
   background: #2b2b2b;
 }
 a{
+  text-decoration: none;
   color: lightgray;
   min-width: 100px;
 }
 .toolbar .tools_start{
-  padding-left: 5%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
   text-align: left;
 }
 .toolbar .tools_end{
-  position: relative;
-  right: 0;
-  padding-right: 5%;
+  padding: 10px;
+  align-items: center;
   text-align: right;
+  transition: all 0.2s ease;
 }
 .toolbar .tools{
-  text-align: center;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
   transition: all 0.2s ease;
 }
 .toolbar .tools:hover{
@@ -79,40 +80,49 @@ a{
   background: lightgray;
 }
 .toolbar .tools_end{
+  display: flex;
   color: lightgray;
-  border-radius: 2px;
-}
-.toolbar .tools_end #log_out{
-  padding: 10px;
   position: relative;
-  color:lightgray;
-  border-radius: 2px;
+  justify-content: center;
+  align-items: center;
   background: #2b2b2b;
   transition: all 0.2s ease;
 }
-.toolbar .tools_end #log_out:hover{
+.toolbar .tools_end .logout {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  right: 50px;
+  height: 40px;
+  width: 40px;
   padding: 10px;
-  position: relative;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.toolbar .tools_end .logout:hover{
   color: lightgray;
-  border-radius: 2px;
   background: red;
 
 }
-.tooltip {
-  font-size: 20px;
-  position: absolute;
-  padding: 10px;
-  margin-top: 25px;
-  min-width: 10%;
-  opacity: 0;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  background: lightgray;
-  z-index: 1;
-  border-radius: 12px;
-}
-.toolbar .tools:hover .tooltip{
-  opacity: 1;
-}
+/* For some reason the tooltip is placed behind the components despite having higher index. TODO: fix tooltip */
+/*.tooltip {*/
+/*  font-size: 20px;*/
+/*  position: absolute;*/
+/*  padding: 10px;*/
+/*  margin-top: 25px;*/
+/*  min-width: 10%;*/
+/*  opacity: 0;*/
+/*  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);*/
+/*  background: lightgray;*/
+/*  border-radius: 12px;*/
+/*  z-index: 99;*/
+/*}*/
+/*.toolbar .tools:hover .tooltip{*/
+/*  opacity: 1;*/
+/*}*/
+
 .monitor{
   margin: 0;
   padding: 0;
@@ -120,6 +130,7 @@ a{
   position: fixed;
   display: flex;
   justify-content: left;
-  top: 80px
+  top: 80px;
+  z-index: 1;
 }
 </style>

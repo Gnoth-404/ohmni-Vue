@@ -171,7 +171,7 @@ export default {
 }
 .info .label {
   padding-right: 50%;
-  text-align: right;
+  text-align: left;
 }
 .intro-block {
   text-align: center;

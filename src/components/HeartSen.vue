@@ -20,8 +20,8 @@
         <div class="bpm">
           <i class='bx bxs-heart'></i>
           <div class="bpm-number">
-              <div><b> {{bpm}} </b> <b>BPM</b></div>
-              <div><b> {{ SP02 }}</b> <b>SPO2</b></div>
+              <div class="info"><b class="number"> {{bpm}} </b> <b class="label">BPM</b></div>
+              <div class="info"><b class="number"> {{SP02}}%</b> <b class="label">SPO2</b></div>
           </div>
         </div>
     <!--    <button v-on:click = sendCmd()>Click Me</button>-->
@@ -97,7 +97,7 @@ export default {
      document.documentElement.style.setProperty('--bpm', displayBPM); //This change the duration of the EKG animation based on bpm value
      let get = document.documentElement.style.getPropertyValue('--bpm');
      console.log(get);
-     this.SP02 = "0";
+     this.SP02 = "98";
   },
 }
 </script>
@@ -160,6 +160,18 @@ export default {
   display: grid;
   align-items: center;
   grid-template-rows: 1fr 1fr;
+}
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.info .number {
+  padding-left: 10%;
+  text-align: left;
+}
+.info .label {
+  padding-right: 50%;
+  text-align: right;
 }
 .intro-block {
   text-align: center;

@@ -1,6 +1,6 @@
 <template>
   <!-- Begin Root Component -->
-  <div id="monitor">
+  <div class="monitor">
     <div class="content">
       <ThermalCam title="Thermal Camera"></ThermalCam>
     </div>
@@ -27,6 +27,12 @@ export default{
 </script>
 
 <style scoped>
+.monitor {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+}
 .content {
   margin: 0;
   padding: 0;

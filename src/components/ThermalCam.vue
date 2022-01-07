@@ -1,6 +1,7 @@
 <template>
   <div class="camera">
     <div class="name">{{ title }}</div>
+    <img src="http://localhost:8080/stream_viewer?topic=Vidcam" />
     <!-- Begin of Root Component -->
     <video class="feed"></video>
     <!-- End of Root Component -->
